@@ -56,3 +56,17 @@ export const getCarousal = async (req, res) => {
     });
   }
 };
+
+export const updateCarousal = async (req, res) => {
+  try {
+    const user = await Carousal.findByIdAndUpdate(req.params.id, req.body);
+    res.send("Update is Done!");
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      data: {
+        message: err,
+      },
+    });
+  }
+};

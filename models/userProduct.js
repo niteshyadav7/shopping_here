@@ -18,7 +18,7 @@ const userProduct = new mongoose.Schema({
     type: Number,
     required: [true, "A tour must have a price"],
   },
-  images: [String],
+  img: [String],
   createdAt: {
     type: Date,
     default: Date.now(),
