@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 import { connection } from "./config/db.js";
 import userRoute from "./routes/userRoute.js";
 import carousalRoute from "./routes/carousalRoute.js";
+import productRouter from "./routes/productRoute.js";
 
 const app = express();
 
@@ -29,8 +30,9 @@ app.use(cookieParser());
 app.use(express.json());
 
 // ROUTE ADDED
-app.use("/api", userRoute);
+app.use("/", userRoute);
 app.use("/", carousalRoute);
+app.use("/", productRouter);
 
 // DATABASE CONNECTED TO MONGO_DB
 connection(MONGO_URL);
