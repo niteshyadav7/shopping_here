@@ -57,3 +57,17 @@ export const getProduct = async (req, res) => {
     });
   }
 };
+
+export const updateProduct = async (req, res) => {
+  try {
+    const user = await Product.findByIdAndUpdate(req.params.id, req.body);
+    res.send("Update is Done!");
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      data: {
+        message: err,
+      },
+    });
+  }
+};

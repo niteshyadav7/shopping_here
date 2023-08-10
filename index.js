@@ -8,6 +8,7 @@ import { connection } from "./config/db.js";
 import userRoute from "./routes/userRoute.js";
 import carousalRoute from "./routes/carousalRoute.js";
 import productRouter from "./routes/productRoute.js";
+import cartRouter from "./routes/cartRoute.js";
 
 const app = express();
 
@@ -33,6 +34,7 @@ app.use(express.json());
 app.use("/", userRoute);
 app.use("/", carousalRoute);
 app.use("/", productRouter);
+app.use("/", cartRouter);
 
 // DATABASE CONNECTED TO MONGO_DB
 connection(MONGO_URL);
