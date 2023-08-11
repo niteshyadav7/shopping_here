@@ -15,7 +15,7 @@ const userProduct = new mongoose.Schema({
     max: [5, "Rating must be below 5.0"],
   },
   price: {
-    type: Number,
+    type: String,
     required: [true, "A tour must have a price"],
   },
   img: [String],
@@ -24,7 +24,10 @@ const userProduct = new mongoose.Schema({
     default: Date.now(),
     select: false,
   },
-  data: [],
+  description: {
+    type: String,
+  },
+  summary: [String],
 });
 
 const Product = mongoose.model("Product", userProduct);

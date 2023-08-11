@@ -2,7 +2,7 @@ import Product from "../models/userProduct.js";
 
 export const createProduct = async (req, res) => {
   try {
-    const user = await Product(req.body);
+    const user = await Product.create(req.body);
     res.send("Data Added!");
   } catch (err) {
     res.status(404).json({
