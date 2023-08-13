@@ -1,6 +1,41 @@
 import img from "../img/7884399.jpg";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
+import { useCookies } from "react-cookie";
+import { toast, ToastContainer } from "react-toastify";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const [cookies, setCookie, removeCookie] = useCookies([]);
+  useEffect(() => {
+    const verifyUser = async () => {
+      if (!cookies.jwt) {
+        navigate("/login");
+      } else {
+        const { data } = await axios.post(
+          "http://localhost:8000",
+          {},
+          {
+            withCredentials: true,
+          }
+        );
+        if (!data.status) {
+          removeCookie("jwt");
+          navigate("/login");
+        } else
+          toast(`Hi ${data.user} 🦄`, {
+            theme: "dark",
+          });
+      }
+    };
+    verifyUser();
+  }, [cookies, navigate, removeCookie]);
+
+  const logOut = () => {
+    removeCookie("jwt");
+    navigate("/login");
+  };
   return (
     <header className="">
       <nav className="bg-gray-100 border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
@@ -17,7 +52,7 @@ const Header = () => {
           </div>
           <div className="flex items-center lg:order-2">
             <div className=" text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
-              <button
+              <button onClick={logOut}
                 type="button"
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
               >
