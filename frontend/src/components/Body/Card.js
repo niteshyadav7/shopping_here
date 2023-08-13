@@ -48,11 +48,11 @@ const Card = () => {
   return (
     <>
       <div className="">
-        <div className="mt-7 ml-14">
+        <div className="mt-7 ml-14 ">
           <h1 className="ml-20 pb-6 text-2xl font-bold text-green-400">
             Total Number Of Product {filterData.length}
           </h1>
-          <ul className="ml-20 flex">
+          <ul className="ml-20 flex ">
             <li>
               <button
                 onClick={handleTopProduct}
@@ -82,7 +82,7 @@ const Card = () => {
               </button>
             </li>
             <li className="ml-52 flex w-1/3">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} className="md:invisible">
                 <input
                   onChange={handleChange}
                   className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-red-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
