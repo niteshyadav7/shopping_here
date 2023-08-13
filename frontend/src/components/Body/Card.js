@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CardShow from "./CardShow";
-import { filterTop } from "../utils/data";
-import { filterHigh } from "../utils/data";
-import { filterLow } from "../utils/data";
-import { filterByName } from "../utils/data";
+import { filterTop } from "./utils/data";
+import { filterHigh } from "./utils/data";
+import { filterLow } from "./utils/data";
+import { filterByName } from "./utils/data";
 
 const Card = () => {
   const [text, setText] = useState([]);
@@ -42,7 +42,7 @@ const Card = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFilterData(filterByName(input, filterData));
+    setFilterData(filterByName(input, text));
     // console.log(input);
   };
   return (

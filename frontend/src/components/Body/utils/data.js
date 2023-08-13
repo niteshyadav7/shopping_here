@@ -13,6 +13,9 @@ export const filterLow = (data) => {
   return res;
 };
 
-export const filterByName=(input,data)=>{
-  
+export function filterByName(searchInput, restaurant) {
+  const data = restaurant.filter((res) =>
+    res?.name?.toLowerCase().includes(searchInput.toLowerCase())
+  );
+  return data;
 }

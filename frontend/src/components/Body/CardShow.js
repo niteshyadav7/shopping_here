@@ -4,7 +4,7 @@ const CardShow = ({ data }) => {
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <span>
-        <img className="rounded-t-lg" src={data?.img[0]} alt="img" />
+        <img className="h-96 w-96 rounded-t-lg" src={data?.img[0]} alt="img" />
       </span>
       <div className="p-5">
         <span>
