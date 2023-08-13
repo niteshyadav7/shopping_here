@@ -5,6 +5,7 @@ import { filterTop } from "./utils/data";
 import { filterHigh } from "./utils/data";
 import { filterLow } from "./utils/data";
 import { filterByName } from "./utils/data";
+import { Link } from "react-router-dom";
 
 const Card = () => {
   const [text, setText] = useState([]);
@@ -82,7 +83,10 @@ const Card = () => {
               </button>
             </li>
             <li className="ml-52 flex w-1/3">
-              <form onSubmit={handleSubmit} className="md:invisible">
+              <form
+                onSubmit={handleSubmit}
+                className="sm:invisible lg:visible "
+              >
                 <input
                   onChange={handleChange}
                   className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-red-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
@@ -99,7 +103,9 @@ const Card = () => {
       <div className="ml-14 flex justify-evenly flex-wrap">
         {filterData.map((data, id) => (
           <div key={id} className="mt-5">
-            <CardShow data={data} />
+            <Link to={"/card/" + data._id}>
+              <CardShow data={data} />
+            </Link>
           </div>
         ))}
       </div>

@@ -6,6 +6,7 @@ import Body from "./components/Body/Body";
 import Contact from "./components/Body/Contact";
 import About from "./components/Body/About";
 import CarousalElement from "./components/Body/CarousalElement";
+import CardElement from "./components/Body/CardElement";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/carousal/:id",
         element: <CarousalElement />,
+      },
+      {
+        path: "/card/:id",
+        element: <CardElement />,
       },
     ],
   },
